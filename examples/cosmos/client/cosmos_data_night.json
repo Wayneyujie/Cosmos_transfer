@@ -1,0 +1,28 @@
+{
+    "prompt": "Captured from a camera mounted on a vehicle's roof, we see an urban intersection at night. Street lights illuminate the scene with warm yellow and cool white glows, while vehicle headlights and taillights create dynamic light trails. Neon signs and illuminated storefronts add colorful accents to building facades. The road surface reflects scattered light, showing wet pavement with clear lane markings. Traffic signals glow brightly, and shadowy areas between pools of light add depth. The dark sky contrasts with the artificial lighting below. cinematic, photorealistic, ultra high quality, ultra high resolution, high fidelity, high definition, expert cinematography, realism, structure of the scene maintained, vehicles maintained, night scene.",
+
+    "input_video_path": "examples/cosmos/client/cosmos/rgb.mp4",
+
+    "negative_prompt": "The video captures a game with low resolution graphics. The video is a cartoon. It represents a recording of old outdated games. The images are very pixelated and of poor CG quality. There are many subtitles in the footage. Overall, the video is unrealistic and appears cg. The video lacks contrast and detail. Everything looks the same with a lack of visual interest in color. Everything looks grey and metallic. The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. The video is of the lowest quality. Vehicles change appearance. Vehicles are ignored. Scene is flat. Colors are unrealistic. Daytime scene.",
+
+    "num_steps": 35,
+    "guidance": 7.0,
+    "sigma_max": 78,
+    "blur_strength": "medium",
+    "seed": 3072,
+
+    "edge": {
+        "input_control": "examples/cosmos/client/cosmos/rgb_edges.mp4",
+        "control_weight": 0.6
+    },
+
+    "seg": {
+        "input_control": "examples/cosmos/client/cosmos/semantic_segmentation.mp4",
+        "control_weight": 0.9
+    },
+
+    "depth": {
+        "input_control": "examples/cosmos/client/cosmos/depth.mp4",
+        "control_weight": 0.4
+    }
+}

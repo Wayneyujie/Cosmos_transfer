@@ -17,6 +17,9 @@
 outputs/
 checkpoints/*
 !checkpoints/README.md
+examples/cosmos/client/cosmos/*.mp4
+examples/cosmos/client/example_data/artifacts/
+examples/cosmos/client/example_data/logs/
 
 # Data types
 *.jit

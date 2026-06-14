@@ -1,0 +1,28 @@
+{
+    "prompt": "Captured from a camera mounted on a vehicle's roof, we see an urban street scene with vehicles, pedestrians, and buildings. The road surface shows clear lane markings, traffic flows steadily, and the environment is well-lit with good visibility. Buildings line the street, and various urban elements like traffic signs, trees, and infrastructure are visible. cinematic, photorealistic, ultra high quality, ultra high resolution, high fidelity, high definition, expert cinematography, realism, structure of the scene maintained, vehicles maintained.",
+
+    "input_video_path": "examples/cosmos/client/cosmos/rgb.mp4",
+
+    "negative_prompt": "The video captures a game with low resolution graphics. The video is a cartoon. It represents a recording of old outdated games. The images are very pixelated and of poor CG quality. There are many subtitles in the footage. Overall, the video is unrealistic and appears cg. The video lacks contrast and detail. Everything looks the same with a lack of visual interest in color. Everything looks grey and metallic. The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. The video is of the lowest quality. Vehicles change appearance. Vehicles are ignored. Scene is flat. Colors are unrealistic.",
+
+    "num_steps": 35,
+    "guidance": 7.0,
+    "sigma_max": 78,
+    "blur_strength": "medium",
+    "seed": 1024,
+
+    "edge": {
+        "input_control": "examples/cosmos/client/cosmos/rgb_edges.mp4",
+        "control_weight": 0.5
+    },
+
+    "seg": {
+        "input_control": "examples/cosmos/client/cosmos/semantic_segmentation.mp4",
+        "control_weight": 0.9
+    },
+
+    "depth": {
+        "input_control": "examples/cosmos/client/cosmos/depth.mp4",
+        "control_weight": 0.3
+    }
+}

@@ -1,0 +1,21 @@
+# 雨天场景变换配置
+prompt = "Captured from a camera mounted on a vehicle's roof, we see a bustling urban intersection during steady rain. Water runs across the camera housing, and the road surface is wet with scattered puddles; painted lane markings and crosswalks are partially obscured by falling rain and tire spray. Vehicles move cautiously, and pedestrians hurry beneath umbrellas and hoods. Buildings appear darkened by the weather, with awnings dripping and gutters channeling runoff. Traffic signals and street signs organize the flow at the junction, while a low, overcast sky reduces overall visibility. cinematic, photorealistic, ultra high quality, ultra high resolution, high fidelity, high definition, expert cinematography, realism, structure of the scene maintained, vehicles maintained."
+input_video_path = "examples/cosmos/client/cosmos/rgb.mp4"
+negative_prompt = "The video captures a game with low resolution graphics. The video is a cartoon. It represents a recording of old outdated games. The images are very pixelated and of poor CG quality. There are many subtitles in the footage. Overall, the video is unrealistic and appears cg. The video lacks contrast and detail. Everything looks the same with a lack of visual interest in color. Everything looks grey and metallic. The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. The video is of the lowest quality. Vehicles change appearance. Vehicles are ignored. Scene is flat. Colors are unrealistic."
+num_steps = 35
+guidance = 7.0
+sigma_max = 78
+blur_strength = "medium"
+seed = 2048
+
+[edge]
+input_control = "examples/cosmos/client/cosmos/rgb_edges.mp4"
+control_weight = 0.5
+
+[seg]
+input_control = "examples/cosmos/client/cosmos/semantic_segmentation.mp4"
+control_weight = 0.9
+
+[depth]
+input_control = "examples/cosmos/client/cosmos/depth.mp4"
+control_weight = 0.3

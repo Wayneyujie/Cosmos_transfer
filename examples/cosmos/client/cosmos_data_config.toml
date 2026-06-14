@@ -1,0 +1,54 @@
+# ========================================
+# 基于你师兄CARLA采集数据的Cosmos配置
+# ========================================
+
+# 场景描述 - 根据实际场景修改
+prompt = "Captured from a camera mounted on a vehicle's roof, we see an urban street scene with vehicles, pedestrians, and buildings. The road surface shows clear lane markings, traffic flows steadily, and the environment is well-lit with good visibility. Buildings line the street, and various urban elements like traffic signs, trees, and infrastructure are visible. cinematic, photorealistic, ultra high quality, ultra high resolution, high fidelity, high definition, expert cinematography, realism, structure of the scene maintained, vehicles maintained."
+
+# 输入RGB视频路径（相对于 cosmos-transfer1 根目录）
+input_video_path = "examples/cosmos/client/cosmos/rgb.mp4"
+
+# 负面提示（保持场景质量）
+negative_prompt = "The video captures a game with low resolution graphics. The video is a cartoon. It represents a recording of old outdated games. The images are very pixelated and of poor CG quality. There are many subtitles in the footage. Overall, the video is unrealistic and appears cg. The video lacks contrast and detail. Everything looks the same with a lack of visual interest in color. Everything looks grey and metallic. The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. The video is of the lowest quality. Vehicles change appearance. Vehicles are ignored. Scene is flat. Colors are unrealistic."
+
+# 扩散步数（35步较好，可降低到20加快速度）
+num_steps = 35
+
+# CFG引导强度（7.0是标准值）
+guidance = 7.0
+
+# 噪声强度 [0-80]：
+# 0-20: 保留更多原视频细节
+# 40-60: 中等变化
+# 78: 大幅改变场景（如天气、光照）
+# >=80: 完全忽略输入视频
+sigma_max = 78
+
+# 模糊强度（用于vis控制）
+blur_strength = "medium"
+
+# 随机种子（相同种子=相同输出）
+seed = 1024
+
+# ========================================
+# 控制输入配置
+# ========================================
+
+# 边缘控制（从 rgb_edges.mp4）
+[edge]
+input_control = "examples/cosmos/client/cosmos/rgb_edges.mp4"
+control_weight = 0.5  # 0.0-1.0，越大边缘约束越强
+
+# 语义分割控制
+[seg]
+input_control = "examples/cosmos/client/cosmos/semantic_segmentation.mp4"
+control_weight = 0.9  # 0.0-1.0，越大语义约束越强
+
+# 深度控制（可选，取消注释启用）
+[depth]
+input_control = "examples/cosmos/client/cosmos/depth.mp4"
+control_weight = 0.3  # 0.0-1.0，越大深度约束越强
+
+# 可见性控制（可选，自动从rgb生成）
+#[vis]
+#control_weight = 0.3
